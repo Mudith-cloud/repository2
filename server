@@ -1,12 +1,12 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mon = require('mon');
 const bodyParser = require('body-parser');
 const Product = require('./models/Product');
 const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-mongoose.connect('mongodb://localhost:27017/store', {useNewUrlParser: true,useUnifiedTopology: true}).then(() => console.log('Connected to MongoDB')).catch(err => console.error(err));
+mon.connect('mongodb://localhost:27017/store', {useNewUrlParser: true,useUnifiedTopology: true}).then(() => console.log('Connected to MongoDB')).catch(err => console.error(err));
 app.get('/', (req, res) => {res.send('Server is up and running');});
 app.post('/products', async (req, res) => {
     try {
