@@ -1,0 +1,3 @@
+const mon = require('mon');
+const productSchema = new mon.Schema({name:string,price:number,description:string})
+module.exports = mon.model('product', productSchema);
